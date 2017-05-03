@@ -16,15 +16,15 @@ const plugins = [
         exclude: /a\.js|node_modules/, // exclude node_modules
         failOnError: false, // show a warning when there is a circular dependency
     }),
-    new  ExtractTextPlugin("styles.css"),
+    new  ExtractTextPlugin('styles.css'),
 ];
 
 module.exports = require('./webpack.base.babel')({
     entry: [
         'eventsource-polyfill', // Necessary for hot reloading with IE
         'webpack/hot/only-dev-server',
-        path.join(process.cwd(), 'app','main.js'),
-        path.join(process.cwd(), 'styles','styles.css')
+        path.join(process.cwd(), 'src/app','main.js'),
+        path.join(process.cwd(), 'src/styles','styles.css')
     ],
 
     // Don't use hashes in dev mode for better performance
@@ -72,18 +72,3 @@ function dependencyHandlers() {
     ];
 }
 
-
-/**
- * We dynamically generate the HTML content in development so that the different
- * DLL Javascript files are loaded in script tags and available to our application.
- */
-function templateContent() {
-    const html = fs.readFileSync(
-        path.resolve(process.cwd(), './public/index.hbs')
-    ).toString();
-
-
-    const doc = cheerio(html);
-
-    return doc.toString();
-}

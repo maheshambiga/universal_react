@@ -10,15 +10,14 @@ const CircularDependencyPlugin = require('circular-dependency-plugin');
 module.exports = require('./webpack.base.babel')({
     // In production, we skip all hot-reloading stuff
     entry: [
-        path.join(process.cwd(), 'app','main.js'),
-        path.join(process.cwd(), 'styles','styles.css')
+        path.join(process.cwd(), '/src/app','main.js'),
+        path.join(process.cwd(), '/src/styles','styles.css')
     ],
 
     // Utilize long-term caching by adding content hashes (not compilation hashes) to compiled assets
     output: {
         filename: '[name].js',
-        chunkFilename: '[name].chunk.js',
-        publicPath:"http://localhost:3000/"
+        chunkFilename: '[name].chunk.js'
     },
 
     plugins: [
@@ -34,7 +33,7 @@ module.exports = require('./webpack.base.babel')({
             exclude: /a\.js|node_modules/, // exclude node_modules
             failOnError: false, // show a warning when there is a circular dependency
         }),
-        new  ExtractTextPlugin("styles.css")
+        new  ExtractTextPlugin('styles.css')
     ],
 
     performance: {

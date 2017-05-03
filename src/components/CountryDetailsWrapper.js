@@ -6,7 +6,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Loader from './Loader';
 import PageHeader from './Header';
-import CountryDetails from "./../containers/CountryDetails";
+import CountryDetails from "../containers/CountryDetails";
 import CountryMap from './CountryMap';
 
 class CountryDetailsWrapper extends Component{

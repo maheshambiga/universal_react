@@ -3,7 +3,7 @@
  */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import GoogleMap from './googleMaps';
+import GoogleMap from './googleMaps/index';
 class CountryMap extends Component {
 
     constructor(props){

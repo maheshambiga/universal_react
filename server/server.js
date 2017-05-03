@@ -5,7 +5,7 @@
 import path from 'path';
 import express from 'express';
 const argv = require('minimist')(process.argv.slice(2));
-import {appStarted, error} from './logger';
+import {appStarted, error} from '../internals/scripts/helpers/logger';
 
 import setup from './middlewares/frontendMiddleware';
 const resolve = require('path').resolve;
@@ -16,9 +16,9 @@ import {Provider} from 'react-redux';
 import ReactDOMServer  from 'react-dom/server'
 import {RouterContext, match} from 'react-router';
 
-import routes from '../common/routes';
-import configureStore from '../store/configureStore'
-import {fetchComponentDataBeforeRender} from '../middlewares/fetchComponentDataBeforeRender';
+import routes from '../src/common/routes';
+import configureStore from '../src/store/configureStore'
+import {fetchComponentDataBeforeRender} from '../src/middlewares/fetchComponentDataBeforeRender';
 
 
 const port = argv.port || process.env.PORT || 3000;
@@ -27,7 +27,7 @@ const publicPath = path.resolve(__dirname, 'public');
 const hbs = require('hbs');
 // set the view engine to use handlebars
 app.set('view engine', 'hbs');
-app.set('views', __dirname + './../public');
+app.set('views', __dirname + './../src/public');
 
 /**
  * apply webpack bundling configuration

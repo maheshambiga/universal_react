@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as countryApiActions from '../actions/countryApiActions';
 import * as countryDetailsActions from '../actions/countryDetailsApiActions'
-import WorldCountriesApp from '../components';
+import WorldCountriesApp from '../components/index';
 
 
 WorldCountriesApp.need = [
